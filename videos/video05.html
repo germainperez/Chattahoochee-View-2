@@ -1,0 +1,45 @@
+<!--
+Author: Germain Perez
+Chattahoochee View is a web application that permits 360&deg; viewing of videos from points along the Chattahoochee River.
+Distributed under the MIT License.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="infoBox">
+        <div id="closeButton">Hide info ✕</div>
+        <h1>Buford Trout Hatchery</h1>
+        <p>This hatchery operated by the Georgia Department of Natural Resources takes advantage of the clear, cold water from Buford Dam. Water is pumped from the river into the hatchery's raceways where rainbow and brown trout are bred. The fish are then released to the Chattahoochee and other streams in North Georgia. Considered the southermost trout waters in the United States, the Chattahoochee tailwater fishery that stretches from the dam to Atlanta annually hosts an estimated 115,00 fishing trips that add up to $10.5 million for the local economy.</p>
+        <p>Of course, the fishery is completely artificial. Before the creation of Lake Lanier and the cold-water releases from the dam, water temperatures in this section of the river could not support trout populations.</p>
+        <p>The hatchery, not accesible from the river, is open daily. The property includes a nature trail, a fishing pond, and viewing areas of the hatchery raceways.</p>
+    </div>
+
+    <a-scene>
+        <a-assets>
+            <video id="videoSample" autoplay loop="true" src="../panoImages/sample.mp4"></video>
+        </a-assets>
+
+        <a-videosphere src="#videoSample" rotation="0 130 15"></a-videosphere>
+    </a-scene>
+
+    <script>
+        window.parent.document.getElementById('myframe').onload = function() {
+            $('#infoBox').fadeIn(3000);
+            $('video').fadeIn(20000);
+            $('#closeButton').click(function(){
+                $('#infoBox').fadeOut(1000, 0);
+            });
+        };
+    </script>
+</body>
+
+</html>

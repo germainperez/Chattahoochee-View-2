@@ -1,0 +1,43 @@
+<!--
+Author: Germain Perez
+Chattahoochee View is a web application that permits 360&deg; viewing of videos from points along the Chattahoochee River.
+Distributed under the MIT License.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="infoBox">
+        <div id="closeButton">Hide info ✕</div>
+        <h1>Littles Ferry Bridge and Bank Robbery Getaway</h1>
+        <p>Now spanned by the modern steel and concrete bridge on McGinnis Ferry Road, this is the site of a great bank robbery getaway in the early 20th century. Two thieves who'd just robbed a Gwinnett County bank made their escape across the bridge here. Upon reaching the Fulton County side, they reportedly stopped, hopped out, and tossed the timber planks of the bridge into the river, rendering the bridge impassable and securing their escape from Gwinnett County authorities. A boat ramp and parking area provide access on river right, upstream from the brige.</p>
+    </div>
+
+    <a-scene>
+        <a-assets>
+            <video id="videoSample" autoplay loop="true" src="../panoImages/sample.mp4"></video>
+        </a-assets>
+
+        <a-videosphere src="#videoSample" rotation="0 90 15"></a-videosphere>
+    </a-scene>
+
+    <script>
+        window.parent.document.getElementById('myframe').onload = function() {
+            $('#infoBox').fadeIn(3000);
+            $('video').fadeIn(20000);
+            $('#closeButton').click(function(){
+                $('#infoBox').fadeOut(1000, 0);
+            });
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!--
+Author: Germain Perez
+Chattahoochee View is a web application that permits 360&deg; viewing of videos from points along the Chattahoochee River.
+Distributed under the MIT License.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="infoBox">
+        <div id="closeButton">Hide info ✕</div>
+        <h1>Rescue Rock Rapid</h1>
+        <p>So named because this site is used by local emergency personnel to practice swiftwater rescue, and, in fact, has been the site of many a real-life rescue.</p>
+        <p>The best route through the borderline Class II rapid starts center and follows the main flow to river right. When Buford Dam is releasing, this rapid is transformed into a formidable Class II obstacle with large waves. During releases, the route on river left is less challenging.</p>
+    </div>
+
+    <a-scene>
+        <a-assets>
+            <video id="videoSample" autoplay loop="true" src="../panoImages/sample.mp4"></video>
+        </a-assets>
+
+        <a-videosphere src="#videoSample" rotation="0 90 15"></a-videosphere>
+    </a-scene>
+
+    <script>
+        window.parent.document.getElementById('myframe').onload = function() {
+            $('#infoBox').fadeIn(3000);
+            $('video').fadeIn(20000);
+            $('#closeButton').click(function(){
+                $('#infoBox').fadeOut(1000, 0);
+            });
+        };
+    </script>
+</body>
+
+</html>

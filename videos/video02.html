@@ -1,0 +1,44 @@
+<!--
+Author: Germain Perez
+Chattahoochee View is a web application that permits 360&deg; viewing of videos from points along the Chattahoochee River.
+Distributed under the MIT License.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="infoBox">
+        <div id="closeButton"> Close ✕ </div>
+        <h1>The Chattahoochee River National Water Trail</h1>
+        <p>The water flowing out from the bottom of Lake Lanier remains about 50&deg; Farenheit year-round and thus in warmer months the river can be shrowded in mist. It is a haven for trout fishermen, paddlers, and tubers.</p>
+        <p>In 2012 the U.S. Dept. of Interior named this stretch of river from Buford Dam to Atlanta its first National Water Trail.</p>
+    </div>
+
+    <a-scene>
+        <a-assets>
+            <video id="videoSample" autoplay loop="true" src="../panoImages/sample.mp4"></video>
+        </a-assets>
+
+        <a-videosphere src="#videoSample" rotation="0 60 15"></a-videosphere>
+    </a-scene>
+
+    <script>
+        window.parent.document.getElementById('myframe').onload = function() {
+            $('#infoBox').fadeIn(3000);
+            $('video').fadeIn(20000);
+            $('#closeButton').click(function(){
+                $('#infoBox').fadeOut(1000, 0);
+            });
+        };
+    </script>
+</body>
+
+</html>
