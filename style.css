@@ -1,0 +1,259 @@
+/*
+* Author: Germain Perez
+* Version: 2.0
+* Chattahoochee View is a web application that permits
+* 360&deg; viewing of videos from points along
+* the Chattahoochee River.
+* Distributed under the MIT License.
+ */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #FFF;
+}
+
+iframe {
+    height:99%;
+    width:102%;
+    border:none;
+}
+
+#header-bar-top {
+    font-size: 1em;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    height: 2%;
+    width: 97%;
+
+    margin-top: 0.5%;
+    margin-left: 2%;
+}
+
+#header-bar-top p {
+    color: #990066;
+
+    float:left;
+    margin: 0;
+
+    padding-left: 1%;
+    padding-top: 2%;
+}
+
+#header-bar-top h1 {
+    color: #990066;
+    font-size: 1.5em;
+
+    float:left;
+    margin: 0;
+
+    padding-left: 1%;
+    padding-top: 2%;
+}
+
+#icon {
+    font-size: 0.75em;
+}
+
+#intro {
+    float: right;
+    margin-right: -1%;
+    margin-top: 2%;
+
+    padding: 2%;
+
+    cursor: pointer;
+    text-decoration: none;
+    background: #990066;
+    color: white;
+    z-index: 1;
+}
+
+#header-bar-bottom {
+    font-size: 1em;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+
+    float: left;
+
+    height: 5%;
+    width: 50%;
+}
+
+#header-bar-bottom p {
+    margin: 0;
+    padding-left: 2%;
+    padding-top: 1.5%;
+}
+
+#header-bar-bottom-right {
+    border-left: 1px solid white;
+    margin-left: -1px;
+    font-size: 1em;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    height: 5%;
+    width: 50%;
+    float: right;
+}
+
+#header-bar-bottom-right p {
+    margin: 0;
+    padding-left: 2%;
+    padding-top: 2%;
+}
+
+#pano-container {
+    margin: auto;
+    float: right;
+    height: 100%;
+    width: 70%;
+}
+
+#pano {
+    margin: 1%;
+    height: 98%;
+    width: 96%;
+}
+
+#map-container {
+    margin: auto;
+    float: left;
+    height: 99%;
+    width: 30%;
+    padding-bottom: 2%;
+}
+
+#map {
+    margin-top: 2%;
+    height: 94%; /* Adjust map height */
+
+    margin-left: 2%;
+    width: 98%;
+}
+
+#infoBox {
+    background: rgba(255,255,255,0.5);
+    padding: 3%;
+    font-size: 1em;
+    font-family: 'Montserrat', sans-serif;
+    color: #1a1a1a;
+    width: 94%;
+    z-index:1;
+    position:absolute;
+    display:none;
+}
+
+#infoBox h1 {
+    color: #09539e;
+    font-weight: normal;
+    font-size: 1.5em;
+}
+
+#closeButton {
+    background-color: #990066;
+    border: none;
+    color: white;
+    padding: 0.75%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    cursor: pointer;
+    position:absolute;
+    top:0;
+    right:0;
+}
+
+/* DROPDOWNS */
+#onclick-menu {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 100%;
+
+    padding-left: 1%;
+    padding-top: 2%;
+    color: #990066;
+    font-size: 1em;
+    cursor: pointer;
+}
+#onclick-menu:before {
+    content: "▾ Legend";
+}
+#nclick-menu:focus {
+    /* clicking on label should toggle the menu */
+    pointer-events: none;
+}
+#onclick-menu:focus #onclick-menu-content {
+    /*  opacity is 1 in opened state (see below) */
+    opacity: 1;
+    visibility: visible;
+
+    /* don't let pointer-events affect descendant elements */
+    pointer-events: auto;
+}
+#onclick-menu-content {
+    color: black;
+    background: rgba(255,255,255,0.75);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+    position: absolute;
+    width: 80%;
+    top: 100%;
+    left: 0;
+    padding: 12px 16px;
+    z-index: 1;
+
+    /* use opacity to fake immediate toggle */
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.5s;
+}
+
+/* END OF DROPDOWNS */
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #1a1a1a;
+    margin: 8% auto; /* 15% from the top and centered */
+    padding: 10px;
+    border: none;
+    width: 80%; /* Could be more or less, depending on screen size */
+    font-size: 1em;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+.modal-content p {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+
+.close {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

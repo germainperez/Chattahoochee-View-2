@@ -1,0 +1,70 @@
+<!--
+Author: Germain Perez
+Version: 2.0
+Chattahoochee View is a web application that permits 360&deg; viewing of videos from points along the Chattahoochee River.
+Distributed under the MIT License.
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="map-container">
+        <div id="header-bar-top">
+            <h1>ChattahoocheeView</h1>
+            <div id="intro"> ? </div>
+        </div>
+
+        <div id="map"></div>
+    </div>
+
+    <div id="pano-container">
+        <div id="pano">
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">✕</span>
+        <h3>Chattahoochee View v2.0</h3>
+        <p>
+        Chattahoochee View is a web application that permits 360&deg; viewing of videos from points along the Chattahoochee River.</p>
+        <p>
+        A map shows the position of the video and other points of interest. Clicking on the markers will change switch the video and accompanying information.</p>
+
+        <p><i>High-speed internet connection recommended</i></p>
+        <h3>Dependencies</h3>
+        <p>
+        Google Maps JavaScript API<br />
+        Google Fonts<br />
+        A-Frame<br />
+        Rico Theta S &amp; utility software<br />
+        </p>
+        <p>. . .</p>
+        <p>
+        Contact: germain [at] gatech.edu<br />
+        v2.0 publish date: 5.4.2017<br />
+        Source code: https://github.com/germainperez/Chattahoochee-View-2<br />
+        Map data &copy; 2017 Google<br />
+        Images and video may not be copied or reproduced</p>
+        <p>
+        The MIT License (MIT) <br />
+        Copyright &copy; 2017 Germain Perez</p>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="pano.js"></script>
+
+    <script defer async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsrzsLwc80vnSXgkV9SkYX5CDGf_U6XVs&callback=initialize"></script>
+
+</body>
+
+</html>
